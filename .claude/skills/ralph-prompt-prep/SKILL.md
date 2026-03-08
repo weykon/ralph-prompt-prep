@@ -146,8 +146,18 @@ When [specific condition] is met, output:
 <promise>[COMPLETION_PROMISE]</promise>
 
 ## Execution Command
+
+**IMPORTANT**: For Ralph Loop compatibility, provide the command in single-line format with triple-quote delimiters:
+
 ```bash
-/ralph-loop "[paste the prompt above]" --max-iterations [N] --completion-promise "[COMPLETION_PROMISE]"
+/ralph-wiggum:ralph-loop """[entire prompt content without newlines]""" --max-iterations [N] --completion-promise "[COMPLETION_PROMISE]"
+```
+
+The prompt content should be on a single line with spaces instead of newlines, wrapped in `"""` delimiters.
+
+**Alternative**: Save to file and use:
+```bash
+/ralph-wiggum:ralph-loop "$(cat prompt.md)" --max-iterations [N] --completion-promise "[COMPLETION_PROMISE]"
 ```
 ```
 
