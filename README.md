@@ -15,7 +15,31 @@ raplh-loop-unit/
 
 ## 🚀 快速開始
 
-### 方法 1: 互動式工具（推薦新手）
+### 一鍵安裝（推薦）
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/weykon/ralph-prompt-prep/main/install.sh | bash
+```
+
+或者手動安裝：
+
+```bash
+git clone https://github.com/weykon/ralph-prompt-prep.git
+cd ralph-prompt-prep
+./install.sh
+```
+
+### 使用方法
+
+#### 方法 1: Claude Code Skill（最簡單）
+
+```bash
+/ralph-prompt-prep "I want to implement user authentication"
+```
+
+Skill 會引導你完成 prompt 準備過程。
+
+#### 方法 2: Python 互動式工具
 
 ```bash
 python3 ralph_prompt_builder.py
@@ -23,17 +47,17 @@ python3 ralph_prompt_builder.py
 
 跟隨提示回答問題，自動生成結構化的 Ralph prompt。
 
-### 方法 2: 查看範例（推薦學習）
+#### 方法 3: 查看範例學習
 
 ```bash
 cat examples_improved.md
 ```
 
-查看你的兩段原始 prompt 是如何被改進的，學習最佳實踐。
+查看實際的 prompt 改進案例，學習最佳實踐。
 
-### 方法 3: 使用模板（推薦熟練用戶）
+#### 方法 4: 使用模板（熟練用戶）
 
-1. 打開 `ralph-prompt-builder.md`
+1. 打開 `quick_reference.md`
 2. 複製模板
 3. 填寫每個部分
 4. 執行 Ralph Loop
