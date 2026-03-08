@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ralph Prompt Prep - Interactive Ralph Loop Prompt Builder</title>
+    <meta name="description" content="Interactive guide for preparing high-quality Ralph Wiggum loop prompts. Build better prompts with structured guidance.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .content {
+            background: white;
+            border-radius: 12px;
+            padding: 60px 40px;
+            margin-top: -40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin: 30px 0 15px;
+            color: #764ba2;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .problem, .solution {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .problem {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .solution {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .problem-solution {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Ralph Prompt Prep</h1>
+            <p class="tagline">Interactive guide for preparing high-quality Ralph Wiggum loop prompts</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/weykon/ralph-prompt-prep" class="btn btn-primary">View on GitHub</a>
+                <a href="#quick-start" class="btn btn-secondary">Get Started</a>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2>Why Ralph Prompt Prep?</h2>
+                <p>Ralph Wiggum is a powerful iterative development technique where Claude repeatedly works on the same prompt, seeing its previous work through files and git history. But writing effective Ralph prompts is challenging.</p>
+
+                <div class="problem-solution">
+                    <div class="problem">
+                        <h3>❌ Common Problems</h3>
+                        <ul>
+                            <li>Vague goals ("make it better")</li>
+                            <li>Scope too broad (trying to do everything)</li>
+                            <li>No validation strategy</li>
+                            <li>Missing completion criteria</li>
+                            <li>Unclear success metrics</li>
+                        </ul>
+                    </div>
+                    <div class="solution">
+                        <h3>✅ Ralph Prompt Prep Solution</h3>
+                        <ul>
+                            <li>Clear, testable goals</li>
+                            <li>Focused scope (In/Out defined)</li>
+                            <li>Concrete validation steps</li>
+                            <li>Completion promise markers</li>
+                            <li>Quantifiable success criteria</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>✨ Features</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>Interactive Guidance</h3>
+                        <p>Natural conversation flow that adapts to your needs, not a rigid questionnaire.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📋</div>
+                        <h3>Structured Templates</h3>
+                        <p>Proven prompt structure with success criteria, validation steps, and completion markers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Best Practices Built-in</h3>
+                        <p>Automatically checks for common mistakes and suggests improvements.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Real Examples</h3>
+                        <p>Learn from actual prompt improvements with before/after comparisons.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>Multiple Tools</h3>
+                        <p>Claude Code skill, Python interactive tool, or manual templates - choose your style.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Quick Start</h3>
+                        <p>Get from idea to working Ralph prompt in minutes, not hours.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="quick-start">
+                <h2>🚀 Quick Start</h2>
+
+                <h3>Method 1: Claude Code Skill (Recommended)</h3>
+                <div class="code-block">
+/ralph-prompt-prep "I want to implement remote session management"
+                </div>
+                <p>The skill will guide you through an interactive conversation to build your prompt.</p>
+
+                <h3>Method 2: Python Interactive Tool</h3>
+                <div class="code-block">
+git clone https://github.com/weykon/ralph-prompt-prep.git
+cd ralph-prompt-prep
+python3 ralph_prompt_builder.py
+                </div>
+                <p>Answer the questions and get a structured prompt automatically generated.</p>
+
+                <h3>Method 3: Manual Template</h3>
+                <p>Copy the template from <code>quick_reference.md</code> and fill in each section.</p>
+            </section>
+
+            <section class="section">
+                <h2>📖 What Makes a Good Ralph Prompt?</h2>
+                <ul class="checklist">
+                    <li><strong>Clear Goal</strong>: One sentence that describes what you want to accomplish</li>
+                    <li><strong>Testable Success Criteria</strong>: Not "works well", but "tests pass" or "success rate >85%"</li>
+                    <li><strong>Defined Scope</strong>: Explicit In Scope and Out of Scope lists</li>
+                    <li><strong>Validation Steps</strong>: Specific commands to run and things to check</li>
+                    <li><strong>Completion Promise</strong>: The <code>&lt;promise&gt;</code> tag that signals done</li>
+                    <li><strong>Reasonable Iterations</strong>: 5-20 iterations for most tasks</li>
+                    <li><strong>Priority Levels</strong>: P0 (must), P1 (important), P2 (optional)</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>💡 Example: Before & After</h2>
+
+                <div class="problem">
+                    <h3>Before (Vague)</h3>
+                    <p>"I want to improve the remote session system and make it better with good UX and maybe add some features for collaboration..."</p>
+                </div>
+
+                <div class="solution" style="margin-top: 20px;">
+                    <h3>After (Structured)</h3>
+                    <p><strong>Goal:</strong> Implement remote session management with user visibility</p>
+                    <p><strong>Success Criteria:</strong></p>
+                    <ul>
+                        <li>Users can see who's controlling their session</li>
+                        <li>Accept/reject control requests work</li>
+                        <li>All integration tests pass</li>
+                    </ul>
+                    <p><strong>Validation:</strong> Run <code>cargo test</code>, check logs, manual test flow</p>
+                    <p><strong>Completion:</strong> <code>&lt;promise&gt;REMOTE_SESSION_COMPLETE&lt;/promise&gt;</code></p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>📚 Documentation</h2>
+                <ul>
+                    <li><strong>quick_reference.md</strong> - Start here! Core concepts and templates</li>
+                    <li><strong>ralph-prompt-builder.md</strong> - Complete preparation framework</li>
+                    <li><strong>examples_improved.md</strong> - Real prompt improvements with analysis</li>
+                    <li><strong>README.md</strong> - Project overview and usage guide</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>🤝 Contributing</h2>
+                <p>Found a bug? Have a suggestion? Contributions are welcome!</p>
+                <div class="code-block">
+git clone https://github.com/weykon/ralph-prompt-prep.git
+# Make your changes
+# Submit a pull request
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Built with ❤️ for the Claude Code community</p>
+            <p>
+                <a href="https://github.com/weykon/ralph-prompt-prep" style="color: white; text-decoration: underline;">GitHub</a> ·
+                <a href="https://ghuntley.com/ralph/" style="color: white; text-decoration: underline;">Ralph Wiggum Technique</a> ·
+                <a href="https://github.com/anthropics/claude-code" style="color: white; text-decoration: underline;">Claude Code</a>
+            </p>
+            <p style="margin-top: 20px; opacity: 0.8;">MIT License © 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
